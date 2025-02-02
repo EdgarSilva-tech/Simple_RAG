@@ -3,12 +3,20 @@ from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
+import openai
 
 class Embeddings:
     def __init__(self):
         self.data_path = "data/Attention.pdf"
         self.api_key = os.getenv("OPENAI_API_KEY")
+
+        if not self.api_key:
+            print("ERROR: OPENAI_API_KEY is not set!")
+            raise ValueError("OpenAI API Key is missing! Set OPENAI_API_KEY before running.")
+        
         self.embedding_function = OpenAIEmbeddings(model="text-embedding-3-large", api_key=self.api_key)
+
+        openai.api_key = self.api_key
 
     def load_data(self):
         loader = PyPDFLoader(self.data_path)

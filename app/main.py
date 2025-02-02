@@ -10,7 +10,6 @@ llm = LLM()
 class Query(BaseModel):
     question: str
 
-
 @app.post("/ask")
 async def answer_question(query: Query):
     snippets = embeddings.get_relevant_snippets(query.question)

@@ -1,10 +1,17 @@
 from langchain_openai import ChatOpenAI
 import os
+import openai
 
 class LLM:
     def __init__(self):
         self.api_key = os.getenv("OPENAI_API_KEY")
+        if not self.api_key:
+            print("ERROR: OPENAI_API_KEY is not set!")
+            raise ValueError("OpenAI API Key is missing! Set OPENAI_API_KEY before running.")
+        
         self.model = ChatOpenAI(model="gpt-4o-mini", api_key=self.api_key)
+
+        openai.api_key = self.api_key
 
     def generate_answer(self, question: str, snippets: list) -> str:
         """Generates an answer using an LLM."""
