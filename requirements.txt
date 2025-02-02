@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pypdf
+langchain-chroma
+openai
+langchain_openai
+pydantic
+langchain-community
