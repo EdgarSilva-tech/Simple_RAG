@@ -3,7 +3,7 @@ import os
 import openai
 
 class LLM:
-    def __init__(self):
+    def __init__(self) -> None:
         self.api_key = os.getenv("OPENAI_API_KEY")
         if not self.api_key:
             print("ERROR: OPENAI_API_KEY is not set!")

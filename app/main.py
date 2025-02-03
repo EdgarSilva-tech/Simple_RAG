@@ -11,7 +11,7 @@ class Query(BaseModel):
     question: str
 
 @app.post("/ask")
-async def answer_question(query: Query):
+async def answer_question(query: Query) -> dict:
     snippets = embeddings.get_relevant_snippets(query.question)
     answer = llm.generate_answer(query.question, snippets)
     return {"answer": answer, "snippets": snippets}

@@ -1,6 +1,6 @@
 This project is a minimal Retrieval-Augmented Generation (RAG) system that allows users to ask a question about the Attention is All you need paper, retrieve relevant text snippets(paragraphs), and generate an answer using a language model.
 
-The system is built using FastAPI, Chroma (for embeddings & retrieval), and a generative AI model, GPT 4o-mini. The entire service is containerized with Docker and can be launched with a single script - start.sh. Before running this script, it's necessary to have an OpenAI API key defined in the environment as such: export OPENAI_API_KEY='API_KEY', this API key for safety reasons will only be injected at runtime.
+The system is built using FastAPI, Chroma (for embeddings & retrieval), and a generative AI model, GPT 4o-mini. The entire service is containerized with Docker and can be launched with a single script - start.sh like so: ./start.sh or bash start.sh. Before running this script, it's necessary to have an OpenAI API key defined in the environment as such: export OPENAI_API_KEY='API_KEY', this API key for safety reasons will only be injected at runtime.
 
 How to use the API:
 We can make a JSON request to ask a question using curl like the following example:
